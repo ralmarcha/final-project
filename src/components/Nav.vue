@@ -14,4 +14,4 @@
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 </script>
 
-<style></style>
+<style scoped></style>
