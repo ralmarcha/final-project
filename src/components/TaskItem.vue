@@ -16,7 +16,7 @@
   </div>
   <!-- EDIT FORM -->
   <form v-if="showForm" @submit.prevent="editTask" class="containerFormEdit">
-    <div v-if="erroHandle" class="errormsg">{{ error }}</div>
+    <div v-if="errorHandle" class="errormsg">{{ error }}</div>
     <input
       type="text"
       placeholder="Edit Title"

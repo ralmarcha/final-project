@@ -4,10 +4,39 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 
 ### 04/10/2022
 
-Today I'm going to study all the project trying to map out a globally structure.
-I will review yesterday's documentation.
-And I'll start organizing the NewTask Component.
-https://supabase.com/docs/reference/javascript/update
-https://supabase.com/docs/reference/javascript/delete
+**_Targets_**
+
+- Study all the project trying to map out a globally structure.
+- Review yesterday's documentation.
+- Start organizing the NewTask Component.
+
+**_Completed_**
+
+- NewTask Component
+- TaskItem Component : remove, edit & done
+  https://supabase.com/docs/reference/javascript/update
+  https://supabase.com/docs/reference/javascript/delete
 
 ### 05/10/2022
+
+**_Targets_**
+
+- Layout of the Homeview
+- HomeView styles : NewTask & TaskItem Components
+
+**TASK LIST**
+
+- [ ] quitar description required del edit taskitem, solo title
+- [ ] decidir diseño global
+- [ ] buscar logos e imágenes
+- [ ] responsive
+- [ ] NewTask style
+- [ ] TaskItem style + edit form style
+- [ ] introducir fecha (momentjs)
+- [ ] NavBar + style + logOut
+- [ ] Mensaje "thanks for signup" o "chekinbox" o similar
+- [ ] Footer + style
+- [ ] SignIn/Up style
+- [ ] mirar si falta alguna ruta
+- [ ] hacer listas por temas¿?añadir imagen de perfil¿?o icono personalixazado en la tarea¿?
+- [ ] deploy Vercel

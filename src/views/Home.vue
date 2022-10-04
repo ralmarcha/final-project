@@ -31,7 +31,7 @@ async function readFromStore() {
 }
 readFromStore();
 // 6. add-to-do function will receive 2 params/arguments that will tak a taskTitle and a taskDescription and the body of this async function will call the taskStore that calls the addTask function from the store that pushes the info of the task to the backEnd. This is possible by passing the 2 param/arguments that will be passed by the user from the inputs within the NewTask Component.
-async function saddTaskTodo(task) {
+async function addTaskTodo(task) {
   await taskStore.addTask(task.title, task.description);
   readFromStore();
 }
