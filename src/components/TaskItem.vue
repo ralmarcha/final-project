@@ -1,5 +1,6 @@
 <template>
-  <div>Task Item Component</div>
+  <p>{{ task.title }}</p>
+  <p>{{ task.description }}</p>
 </template>
 
 <script setup>
@@ -7,7 +8,7 @@
 //   ENTER-EMITS-HERE
 // ])
 
-// const props = defineProps(["ENTER-PROP-HERE"]);
+const props = defineProps(["task"]);
 </script>
 
 <style></style>

@@ -1,10 +1,38 @@
 <template>
-  <div>hello</div>
+  <NewTask @childNewTask="sendToStore" />
+  <TaskItem v-for="(item, index) in taskArray" :key="index" :task="item" />
 </template>
 
-<script setup></script>
+<script setup>
+import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+import { ref } from "vue";
+import { useTaskStore } from "../stores/task";
+// nos definimos la tienda del usuario dentro de una constante
+const taskStore = useTaskStore();
+// Inicializamos array de tareas
+let taskArray = ref([]);
 
-<style></style>
+async function readFromStore() {
+  taskArray.value = await taskStore.fetchTasks();
+}
+
+readFromStore();
+
+// Enviamos los datos de la tarea a la Tienda taskStore
+async function sendToStore(task) {
+  await taskStore.addTask(task.title, task.description);
+  readFromStore();
+}
+</script>
+
+<style>
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap");
+font-family: 'Poppins', sans-serif; */
+* {
+  font-family: "Poppins", sans-serif;
+}
+</style>
 
 <!-- 
 **Hints**
