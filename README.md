@@ -24,11 +24,15 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - Layout of the Homeview
 - HomeView styles : NewTask & TaskItem Components
 
+**_Completed_**
+
+- Name for the App, logo and design idea
+
 **TASK LIST**
 
 - [ ] quitar description required del edit taskitem, solo title
-- [ ] decidir diseño global
-- [ ] buscar logos e imágenes
+- [x] decidir diseño global
+- [x] buscar logos e imágenes
 - [ ] responsive
 - [ ] NewTask style
 - [ ] TaskItem style + edit form style

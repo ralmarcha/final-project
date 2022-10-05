@@ -1,5 +1,5 @@
 <template>
-  <div>Nav Component</div>
+  <div class="navBar-logo"></div>Nav Component</div>
 </template>
 
 <script setup>
