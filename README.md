@@ -27,17 +27,28 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 **_Completed_**
 
 - Name for the App, logo and design idea
+- Working on Navbar , signOut & Burger Menu
+
+### 06/10/2022
+
+**_Targets_**
+
+- Finish Burger
+- Footer & Header
+- Styling Home View
 
 **TASK LIST**
 
 - [ ] quitar description required del edit taskitem, solo title
 - [x] decidir diseño global
 - [x] buscar logos e imágenes
+- [ ] header
 - [ ] responsive
 - [ ] NewTask style
 - [ ] TaskItem style + edit form style
 - [ ] introducir fecha (momentjs)
-- [ ] NavBar + style + logOut
+- [x] NavBar + style + logOut
+- [ ] Burger Menu
 - [ ] Mensaje "thanks for signup" o "chekinbox" o similar
 - [ ] Footer + style
 - [ ] SignIn/Up style
