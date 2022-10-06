@@ -1,12 +1,18 @@
 <template>
-  <h1>Add a New Task</h1>
-  <div>
-    <input v-model="title" type="text" placeholder="Task's title" />
-    <input v-model="description" type="text" placeholder="Task's description" />
-    <button @click.prevent="addNewTask">Add</button>
-  </div>
-  <div>
-    <h3 v-if="errorNoValue">{{ errorMessage }}</h3>
+  <div class="container">
+    <h1>Add a New Task</h1>
+    <div>
+      <input v-model="title" type="text" placeholder="Task's title" />
+      <input
+        v-model="description"
+        type="text"
+        placeholder="Task's description"
+      />
+      <button @click.prevent="addNewTask">Add</button>
+    </div>
+    <div>
+      <h3 v-if="errorNoValue">{{ errorMessage }}</h3>
+    </div>
   </div>
 </template>
 
@@ -46,4 +52,9 @@ const addNewTask = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  margin: 50px;
+  align-content: center;
+}
+</style>
