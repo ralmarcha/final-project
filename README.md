@@ -34,7 +34,18 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 **_Targets_**
 
 - Finish Burger
-- Footer & Header
+- Footer & Date
+- Styling Home View
+
+**_Completed_**
+
+- Burger menu
+
+### 07/10/2022
+
+**_Targets_**
+
+- Footer & Date
 - Styling Home View
 
 **TASK LIST**
@@ -42,16 +53,14 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - [ ] quitar description required del edit taskitem, solo title
 - [x] decidir diseño global
 - [x] buscar logos e imágenes
-- [ ] header
 - [ ] responsive
 - [ ] NewTask style
 - [ ] TaskItem style + edit form style
 - [ ] introducir fecha (momentjs)
 - [x] NavBar + style + logOut
-- [ ] Burger Menu
+- [x] Burger Menu
 - [ ] Mensaje "thanks for signup" o "chekinbox" o similar
 - [ ] Footer + style
 - [ ] SignIn/Up style
-- [ ] mirar si falta alguna ruta
 - [ ] hacer listas por temas¿?añadir imagen de perfil¿?o icono personalixazado en la tarea¿?
 - [ ] deploy Vercel

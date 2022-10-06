@@ -1,6 +1,7 @@
 <template>
   <!-- 2. (NewTask, TaskItem, Footer, Nav) components are used here!  -->
-  <Nav />
+  <NewNav />
+
   <!-- 5. NewTask component will receive a customEvent on this instance of the homeView that will fire the add-to-do function -->
   <NewTask @childNewTask="addTaskTodo" />
   <!-- 
@@ -22,6 +23,8 @@ import TaskItem from "../components/TaskItem.vue";
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import Nav from "../components/Nav.vue";
+import NewNav from "../components/NewNav.vue";
+
 // nos definimos la tienda del usuario dentro de una constante
 const taskStore = useTaskStore();
 // 3. Tasks are going to be contained in an array here!

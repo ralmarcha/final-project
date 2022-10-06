@@ -1,39 +1,19 @@
 <template>
-  <header :class="{ 'scrolled-nav': scrollPosition }">
-    <div class="navContainer">
-      <div class="branding">
-        <RouterLink to="/"
-          ><img src="../assets/images/ttlogo.svg" alt="tt logo"
-        /></RouterLink>
-        <RouterView />
-      </div>
-      <nav v-show="!mobile" class="navigation">
-        <p class="link">
-          Nice to see you <span>{{ name }}</span>
-        </p>
-        <button class="link" @click="logOut">LogOut</button>
-      </nav>
-      <div
-        class="icon"
-        @click="toggleMobileNav"
-        v-show="mobile"
-        :class="{ 'icon-active': mobileNav }"
-      >
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <transition name="mobile-nav">
-        <nav v-show="mobileNav" class="dropdown-nav">
-          <p class="link">
-            Nice to see you <span>{{ name }}</span>
-          </p>
-          <button class="link" @click="logOut">LogOut</button>
-        </nav>
-      </transition>
+  <div class="navContainer">
+    <div class="navBar-logo">
+      <RouterLink to="/"
+        ><img src="../assets/images/ttlogo.svg" alt="tt logo"
+      /></RouterLink>
+      <RouterView />
     </div>
-    <hr />
-  </header>
+    <nav>
+      <p>
+        Nice to see you <span>{{ name }}</span>
+      </p>
+      <button @click="logOut">LogOut</button>
+    </nav>
+  </div>
+  <hr />
 </template>
 
 <script setup>
@@ -64,68 +44,26 @@ const logOut = async () => {
     }, 5000);
   }
 };
-
-const scrollPosition = ref(null);
-const mobile = ref(true);
-const mobileNav = ref(false);
-const windowWidth = ref(null);
 </script>
 
 <style scoped>
 img {
-  width: 50px;
-  transition: 0.5s ease all;
-}
-header {
-  background-color: #feecb7;
-  z-index: 99;
-  width: 100%;
-  position: fixed; /*si scrolldown se queda*/
-  transition: 0.5s ease all;
+  width: 60px;
 }
 .navContainer {
-  position: relative;
   display: flex;
-  justify-content: space-between; /*meu*/
+  justify-content: space-between;
   align-content: center;
   align-items: center;
   width: 90%;
-  margin: 0 auto;
-  height: 80px; /*meu*/
-  padding: 12px 0;
-  transition: 0.5s ease all;
-  @media (min-width: 1140px) {
-    max-width: 1140px;
-  }
+  margin: 0 50px;
+  height: 80px;
 }
-.link {
-  transition: 0.5s ease all;
-}
-.icon {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  align-items: center;
-  right: 24px;
-  cursor: pointer;
-}
-
-.bar {
-  width: 30px;
-  height: 3px;
-  background-color: #63a1a5;
-  transition: 0.8s ease all;
-  margin: 5px auto;
-}
-.icon-active {
-  transform: rotate(180deg);
-}
-.navigation {
+nav {
   display: flex;
   gap: 200px;
   align-items: center;
 }
-
 button {
   padding: 10px 30px;
   background: #72c1c1;

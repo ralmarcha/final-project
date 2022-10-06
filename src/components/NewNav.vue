@@ -1,0 +1,207 @@
+<template>
+  <header>
+    <div id="displayFlex">
+      <div class="branding">
+        <RouterLink to="/"
+          ><img id="logo" src="../assets/images/ttlogo.svg" alt="tt logo"
+        /></RouterLink>
+        <RouterView />
+      </div>
+
+      <div class="displayOnMobile" id="userIcon" @click="openUserMenu">
+        <span class="bar" :class="{ 'icon-active': mobileNav }"></span>
+        <span class="bar" :class="{ 'icon-active': mobileNav }"></span>
+        <span class="bar" :class="{ 'icon-active': mobileNav }"></span>
+      </div>
+
+      <div class="dontDisplayOnMobile" id="navigation">
+        <p class="link">
+          Nice to see you <span>{{ name }}</span>
+        </p>
+        <button type="submit" @click="logOut">LogOut</button>
+      </div>
+    </div>
+    <Transition name="mobile-nav">
+      <nav
+        v-show="mobileNav"
+        class="displayOnMobile displayNone"
+        id="mobileUserMenu"
+      >
+        <p class="link-drop">
+          Nice to see you <span>{{ name }}</span>
+        </p>
+        <p class="link-drop" @click="logOut">LogOut</p>
+      </nav>
+    </Transition>
+    <hr />
+  </header>
+</template>
+
+<script setup>
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
+import { RouterLink, RouterView } from "vue-router";
+import { useUserStore } from "../stores/user";
+const mobileNav = ref(false);
+//constant to save a variable that will hold the use router method
+const userStore = useUserStore();
+// constant to save a variable that will get the user from store with a computed function imported from vue
+const user = userStore.user;
+
+// constant that calls user email from the useUSerStore
+const userEmail = user.email;
+// constant that saves the user email and cleans out the @client from the user
+const name = userEmail.replace(/@.*$/, "");
+// async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
+const redirect = useRouter();
+const logOut = async () => {
+  try {
+    await userStore.signOut();
+    redirect.push({ path: "/auth/login" });
+  } catch (error) {
+    errorMsg.value = `Error: ${error.message}`;
+    setTimeout(() => {
+      errorMsg.value = null;
+    }, 5000);
+  }
+};
+
+function openUserMenu() {
+  let userMenu = document.getElementById("mobileUserMenu");
+  userMenu.classList.toggle("displayNone");
+  mobileNav.value = !mobileNav.value;
+}
+</script>
+
+<style scoped>
+img {
+  width: 50px;
+}
+header {
+  background-color: #feebb3;
+  z-index: 99;
+  width: 100%;
+  position: fixed; /*si scrolldown se queda*/
+  transition: 0.5s ease all;
+}
+#displayFlex {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  height: 80px; /*meu*/
+  padding: 12px 0;
+  transition: 0.5s ease all;
+  @media (min-width: 1140px) {
+    max-width: 1140px;
+  }
+}
+.link {
+  transition: 0.5s ease all;
+}
+
+* {
+  margin: 0;
+}
+
+button {
+  padding: 10px 30px;
+  background: #72c1c1;
+  border: 2px solid #406c6c;
+  color: #6c4040;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 2px 2px 5px #999;
+}
+button:hover {
+  background-color: #406c6c;
+  border: 2px solid #72c1c1;
+  color: #72c1c1;
+  box-shadow: 2px 2px 5px #999;
+}
+hr {
+  box-shadow: 2px 2px 5px #999;
+}
+.displayOnMobile {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .displayOnMobile {
+    display: none;
+  }
+  #navigation {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  .dontDisplayOnMobile {
+    display: none;
+  }
+  .displayOnMobile {
+    display: block;
+  }
+  #userIcon {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    right: 24px;
+    cursor: pointer;
+  }
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #dd7210;
+    transition: 0.8s ease all;
+    margin: 5px auto;
+  }
+  .icon-active {
+    transform: rotate(180deg);
+  }
+  .link {
+    transition: 0.5s ease all;
+  }
+  #mobileUserMenu {
+    position: fixed;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+  }
+  .link-drop {
+    margin-left: 0;
+  }
+
+  .mobile-nav-enter-active {
+    transition: 1s ease all;
+  }
+  .mobile-nav-leave-active {
+    transition: 1s ease all;
+  }
+  .mobile-nav-enter-from {
+    transform: translateX(-350px);
+  }
+  .mobile-nav-leave-to {
+    transform: translateX(-350px);
+  }
+  .mobile-nav-enter-to {
+    transform: translateX(0);
+  }
+}
+.displayNone {
+  display: none;
+}
+</style>
