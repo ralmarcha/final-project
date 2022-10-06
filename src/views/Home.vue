@@ -73,6 +73,3 @@ font-family: 'Poppins', sans-serif; */
   margin: 10px;
 }
 </style>
-
-// colores: // #406c6c // #6c4040 // #72c1c1 // #6c5a40 // #dd7210 // #c42727 //
-#ffcf00 // #d2864c // #cf7815 // #79351f // #79351f
