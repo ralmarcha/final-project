@@ -74,14 +74,16 @@ function openUserMenu() {
 </script>
 
 <style scoped>
+* {
+  background-color: #feebb3;
+}
 img {
   width: 50px;
 }
 header {
-  background-color: #feebb3;
   z-index: 99;
   width: 100%;
-  position: fixed; /*si scrolldown se queda*/
+  /* position: fixed; si scrolldown se queda */
   transition: 0.5s ease all;
 }
 #displayFlex {

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <p>Today's Date is {{ currentDate() }}</p>
+    <h3>
+      Let the Adventure <br />Begin Today<br />
+      {{ currentDate() }}
+    </h3>
   </div>
 </template>
 
@@ -14,10 +17,42 @@ function currentDate() {
 
 <style scoped>
 * {
-  padding-top: 60px;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding-top: 50px;
+  background-color: transparent;
+}
+div {
   display: flex;
-  justify-content: flex-end;
-  background-color: indianred;
+  justify-content: center;
+  z-index: 5;
+  padding: 20px;
+  position: relative;
   width: 90%;
+}
+div::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(../assets/images/carretera.png) center center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  border-radius: 40px;
+}
+
+h3 {
+  position: relative;
+  text-align: center;
+  margin-top: 130px;
+  color: white;
+  font-size: 26px;
+  font-weight: 300;
 }
 </style>

@@ -48,6 +48,10 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - Footer & Date
 - Styling Home View
 
+**_Completed_**
+
+- Footer & Date
+
 **TASK LIST**
 
 - [ ] quitar description required del edit taskitem, solo title
@@ -60,7 +64,7 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - [x] NavBar + style + logOut
 - [x] Burger Menu
 - [ ] Mensaje "thanks for signup" o "chekinbox" o similar
-- [ ] Footer + style
+- [x] Footer + style (falta responsive)
 - [ ] SignIn/Up style
 - [ ] hacer listas por temas¿?añadir imagen de perfil¿?o icono personalixazado en la tarea¿?
 - [ ] deploy Vercel
