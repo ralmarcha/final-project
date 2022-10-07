@@ -4,18 +4,23 @@
     <NewNav />
     <Date />
     <!-- 5. NewTask component will receive a customEvent on this instance of the homeView that will fire the add-to-do function -->
-    <NewTask @childNewTask="addTaskTodo" />
+    <div id="tasks">
+      <NewTask @childNewTask="addTaskTodo" />
 
-    <!-- 
+      <!-- 
 7. TaskItem component will loop through the tasks-array that will print an individual instance of an individual TaskItem component. TaskItem will receive 3 customEvents on this instance of the homeView. 1 customEvent for toggling the task to show either a text or an icon to display if the task is completed or not completed. 1 customEevent for removing/deleting the task out of the array. 1 customEvent for editing the task title and description. -->
-    <TaskItem
-      v-for="(item, index) in taskArray"
-      :key="index"
-      :task="item"
-      @emitRemove="deleteTask"
-      @emitEdit="editTask"
-      @emitStatus="checkTask"
-    />
+      <div id="taskItem">
+        <TransitionGroup name="taskTran">
+          <TaskItem
+            v-for="(item, index) in taskArray"
+            :key="index"
+            :task="item"
+            @emitRemove="deleteTask"
+            @emitEdit="editTask"
+            @emitStatus="checkTask"
+        /></TransitionGroup>
+      </div>
+    </div>
     <Footer />
   </div>
 </template>
@@ -79,11 +84,27 @@ font-family: 'Poppins', sans-serif; */
 * {
   font-family: "Roboto Mono", monospace;
   padding: 0;
-  margin: 10px;
+  margin: 0;
   background-color: antiquewhite;
 }
 #homeContainer {
   display: flex;
   flex-direction: column;
+  margin: 10px 10px 20px 200px;
+}
+#tasks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.taskTran-enter-active {
+  transition: all 0.8s ease-out;
+}
+.taskTran-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.taskTran-enter-from,
+.taskTran-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>

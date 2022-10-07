@@ -1,12 +1,18 @@
 <template>
   <div class="container">
     <h1>Add a New Task</h1>
-    <div>
-      <input v-model="title" type="text" placeholder="Task's title" />
+    <div class="flex">
       <input
+        id="title"
+        v-model="title"
+        type="text"
+        placeholder="Enter a title"
+      />
+      <input
+        id="description"
         v-model="description"
         type="text"
-        placeholder="Task's description"
+        placeholder="Enter a description"
       />
       <button @click.prevent="addNewTask">Add</button>
     </div>
@@ -18,8 +24,6 @@
 
 <script setup>
 import { ref } from "vue";
-import { supabase } from "../supabase";
-import { useTaskStore } from "../stores/task.js";
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 const emit = defineEmits(["childNewTask"]);
@@ -55,10 +59,73 @@ const addNewTask = () => {
 <style scoped>
 * {
   align-content: center;
-  background-color: burlywood;
-  width: 90%;
+  background-color: #fcbe6b;
+  width: 100%;
+  margin-bottom: 20px;
 }
 h1 {
   padding-top: 50px;
+  color: #79351f;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}
+.container {
+  outline: 1px solid #79351f;
+  outline-offset: -10px;
+  width: 400px;
+  margin-top: 20px;
+}
+
+input {
+  font-size: 16px;
+  display: block;
+  width: 80%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #79351f;
+  color: #79351f;
+
+  transition: all 0.4s ease;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  background-color: #feecb7;
+  opacity: 0.5;
+  transition: ease-in-out, width 0.35s ease-in-out;
+}
+::placeholder {
+  color: #79351f;
+  font-size: 12px;
+  opacity: 0.7;
+  font-style: italic;
+}
+button {
+  flex: 1;
+  height: 40px;
+  max-width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #807d48;
+  background-color: #d2864c;
+  color: #79351f;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+button:hover {
+  opacity: 0.8;
+  -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 6px 0 #5a3d2b;
+  transition: all 0.3s ease-in-out;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
 }
 </style>

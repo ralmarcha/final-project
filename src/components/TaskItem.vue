@@ -1,36 +1,52 @@
 <template>
-  <div class="taskContainer">
-    <p>{{ task.title }}</p>
-    <p>{{ task.description }}</p>
-  </div>
-  <!-- CHANGE STATUS -->
-  <div class="taskEdit">
-    <span v-if="task.is_complete" @click="toggleStatus" class="done">Done</span>
-    <span v-if="!task.is_complete" @click="toggleStatus" class="notDone"
-      >Not Done</span
+  <div class="taskItem">
+    <div
+      class="taskContainer"
+      v-on:mouseover="showDescription = !showDescription"
+      v-on:mouseleave="showDescription = !showDescription"
     >
-    <!-- EDIT TASK -->
-    <span class="edit" @click="handleForm">Edit</span>
-    <!-- DELETE TASK -->
-    <span class="delete" @click="removeTask">delete</span>
+      <p id="title">{{ task.title }}</p>
+
+      <p id="desc" v-if="showDescription">
+        {{ task.description }}
+      </p>
+    </div>
+
+    <!-- CHANGE STATUS -->
+    <div class="taskEdit">
+      <span v-if="task.is_complete" @click="toggleStatus" class="done"
+        ><img id="done" src="../assets/images/done.svg" alt="Done icon"
+      /></span>
+      <span v-if="!task.is_complete" @click="toggleStatus" class="notDone"
+        ><img id="notDone" src="../assets/images/notdone.svg" alt="Done icon"
+      /></span>
+      <!-- EDIT TASK -->
+      <span class="edit" @click="handleForm"
+        ><img src="../assets/images/edit.svg" alt="Done icon"
+      /></span>
+      <!-- DELETE TASK -->
+      <span class="delete" @click="removeTask"
+        ><img src="../assets/images/delete.svg" alt="Done icon"
+      /></span>
+    </div>
+    <!-- EDIT FORM -->
+    <form v-if="showForm" @submit.prevent="editTask" class="containerFormEdit">
+      <div v-if="errorHandle" class="errormsg">{{ error }}</div>
+      <input
+        type="text"
+        placeholder="Edit Title"
+        v-model="editTitle"
+        class="inputEditTask"
+      />
+      <input
+        type="text"
+        placeholder="Edit Description"
+        v-model="editDescription"
+        class="inputEditTask"
+      />
+      <button type="submit">Save</button>
+    </form>
   </div>
-  <!-- EDIT FORM -->
-  <form v-if="showForm" @submit.prevent="editTask" class="containerFormEdit">
-    <div v-if="errorHandle" class="errormsg">{{ error }}</div>
-    <input
-      type="text"
-      placeholder="Edit Title"
-      v-model="editTitle"
-      class="inputEditTask"
-    />
-    <input
-      type="text"
-      placeholder="Edit Description"
-      v-model="editDescription"
-      class="inputEditTask"
-    />
-    <button type="submit">Save</button>
-  </form>
 </template>
 
 <script setup>
@@ -93,11 +109,42 @@ const editTask = () => {
 const removeTask = () => {
   emit("emitRemove", props.task);
 };
+
+const showDescription = ref(false);
 </script>
 
 <style scoped>
 * {
-  background-color: grey;
-  width: 90%;
+  width: 100%;
+  background-color: #bcbb85;
+}
+.taskItem {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  width: 50px;
+}
+.taskEdit {
+  display: flex;
+  flex-direction: row;
+}
+.taskEdit:hover {
+  cursor: pointer;
+}
+.taskItem {
+  outline: 1px solid #79351f;
+  outline-offset: -5px;
+  width: 450px;
+}
+#desc {
+  font-size: 14px;
+}
+.taskContainer {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
 }
 </style>

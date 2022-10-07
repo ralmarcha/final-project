@@ -30,6 +30,7 @@ div {
   padding: 20px;
   position: relative;
   width: 90%;
+  margin: 20px 0;
 }
 div::before {
   content: "";
@@ -52,7 +53,7 @@ h3 {
   text-align: center;
   margin-top: 130px;
   color: white;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 300;
 }
 </style>

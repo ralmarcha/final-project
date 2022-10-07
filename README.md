@@ -51,6 +51,15 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 **_Completed_**
 
 - Footer & Date
+- NewTask Style
+- TaskItem Style (edit form pending)
+
+### 10/10/2022
+
+**_Targets_**
+
+- Edit form Style
+- SignIn & SignUp Styles
 
 **TASK LIST**
 
@@ -58,8 +67,9 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - [x] decidir diseño global
 - [x] buscar logos e imágenes
 - [ ] responsive
-- [ ] NewTask style
-- [ ] TaskItem style + edit form style
+- [x] NewTask style
+- [x] TaskItem style
+- [ ] edit form style
 - [x] introducir fecha (momentjs)
 - [x] NavBar + style + logOut
 - [x] Burger Menu
