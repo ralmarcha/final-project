@@ -56,7 +56,7 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - [ ] responsive
 - [ ] NewTask style
 - [ ] TaskItem style + edit form style
-- [ ] introducir fecha (momentjs)
+- [x] introducir fecha (momentjs)
 - [x] NavBar + style + logOut
 - [x] Burger Menu
 - [ ] Mensaje "thanks for signup" o "chekinbox" o similar

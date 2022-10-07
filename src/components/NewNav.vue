@@ -137,6 +137,7 @@ hr {
   .displayOnMobile {
     display: none;
   }
+
   #navigation {
     display: flex;
     gap: 20px;

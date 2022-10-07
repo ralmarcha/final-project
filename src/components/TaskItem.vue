@@ -95,4 +95,9 @@ const removeTask = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+* {
+  background-color: grey;
+  width: 90%;
+}
+</style>

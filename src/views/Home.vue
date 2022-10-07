@@ -1,9 +1,10 @@
 <template>
   <!-- 2. (NewTask, TaskItem, Footer, Nav) components are used here!  -->
   <NewNav />
-
+  <Date />
   <!-- 5. NewTask component will receive a customEvent on this instance of the homeView that will fire the add-to-do function -->
   <NewTask @childNewTask="addTaskTodo" />
+
   <!-- 
 7. TaskItem component will loop through the tasks-array that will print an individual instance of an individual TaskItem component. TaskItem will receive 3 customEvents on this instance of the homeView. 1 customEvent for toggling the task to show either a text or an icon to display if the task is completed or not completed. 1 customEevent for removing/deleting the task out of the array. 1 customEvent for editing the task title and description. -->
   <TaskItem
@@ -14,6 +15,7 @@
     @emitEdit="editTask"
     @emitStatus="checkTask"
   />
+  <Footer />
 </template>
 
 <script setup>
@@ -24,6 +26,8 @@ import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import Nav from "../components/Nav.vue";
 import NewNav from "../components/NewNav.vue";
+import Date from "../components/Date.vue";
+import Footer from "../components/Footer.vue";
 
 // nos definimos la tienda del usuario dentro de una constante
 const taskStore = useTaskStore();

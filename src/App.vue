@@ -33,4 +33,9 @@ onMounted(async () => {
   </div>
 </template>
 
-<style></style>
+<style>
+* {
+  max-width: 1200px;
+  align-items: center;
+}
+</style>

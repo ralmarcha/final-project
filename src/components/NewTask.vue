@@ -53,8 +53,12 @@ const addNewTask = () => {
 </script>
 
 <style scoped>
-.container {
-  margin: 50px;
+* {
   align-content: center;
+  background-color: burlywood;
+  width: 90%;
+}
+h1 {
+  padding-top: 50px;
 }
 </style>
