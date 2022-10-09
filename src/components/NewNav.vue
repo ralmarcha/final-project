@@ -27,9 +27,6 @@
         class="displayOnMobile displayNone"
         id="mobileUserMenu"
       >
-        <p class="link-drop">
-          Nice to see you <span>{{ name }}</span>
-        </p>
         <p class="link-drop" @click="logOut">LogOut</p>
       </nav>
     </Transition>
@@ -42,6 +39,7 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { RouterLink, RouterView } from "vue-router";
 import { useUserStore } from "../stores/user";
+
 const mobileNav = ref(false);
 //constant to save a variable that will hold the use router method
 const userStore = useUserStore();
@@ -57,6 +55,7 @@ const redirect = useRouter();
 const logOut = async () => {
   try {
     await userStore.signOut();
+    // Swal.fire("Hello Vue world!!!");
     redirect.push({ path: "/auth/login" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
@@ -74,11 +73,8 @@ function openUserMenu() {
 </script>
 
 <style scoped>
-* {
-  background-color: #feebb3;
-}
 img {
-  width: 50px;
+  width: 80px;
 }
 header {
   z-index: 99;
@@ -102,6 +98,7 @@ header {
 }
 .link {
   transition: 0.5s ease all;
+  font-size: 0.8rem;
 }
 
 * {
@@ -109,24 +106,24 @@ header {
 }
 
 button {
-  padding: 10px 30px;
-  background: #72c1c1;
-  border: 2px solid #406c6c;
+  padding: 5px 20px;
+  background: #c25649;
+  border: 1px solid #6c4040;
   color: #6c4040;
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 400;
   cursor: pointer;
   transition: 0.5s;
-  box-shadow: 2px 2px 5px #999;
+  box-shadow: 2px 2px 5px #6c5a40;
 }
 button:hover {
-  background-color: #406c6c;
-  border: 2px solid #72c1c1;
-  color: #72c1c1;
-  box-shadow: 2px 2px 5px #999;
+  background-color: #c16a1b;
+  border: 1px solid #6c4040;
+  color: #6c4040;
+  box-shadow: 2px 2px 5px #6c5a40;
 }
 hr {
   box-shadow: 2px 2px 5px #999;
@@ -135,7 +132,7 @@ hr {
   cursor: pointer;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   .displayOnMobile {
     display: none;
   }
@@ -178,14 +175,26 @@ hr {
     position: fixed;
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 100px;
     height: 100%;
-    background-color: white;
+    background-color: antiquewhite;
+    padding: 60px 20px 0 20px;
     top: 0;
-    left: 0;
   }
   .link-drop {
     margin-left: 0;
+    padding: 5px 15px;
+    background: #c25649;
+    border: 1px solid #6c4040;
+    color: #6c4040;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 2px 2px 5px #6c5a40;
   }
 
   .mobile-nav-enter-active {
@@ -195,10 +204,10 @@ hr {
     transition: 1s ease all;
   }
   .mobile-nav-enter-from {
-    transform: translateX(-350px);
+    transform: translateX(-100px);
   }
   .mobile-nav-leave-to {
-    transform: translateX(-350px);
+    transform: translateX(-100px);
   }
   .mobile-nav-enter-to {
     transform: translateX(0);

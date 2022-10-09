@@ -95,6 +95,7 @@ font-family: 'Poppins', sans-serif; */
 #tasks {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 .taskTran-enter-active {
   transition: all 0.8s ease-out;
@@ -106,5 +107,14 @@ font-family: 'Poppins', sans-serif; */
 .taskTran-leave-to {
   transform: translateX(10px);
   opacity: 0;
+}
+@media screen and (max-width: 768px) {
+  #tasks {
+    display: flex;
+    flex-direction: column;
+  }
+  #homeContainer {
+    margin: 10px;
+  }
 }
 </style>

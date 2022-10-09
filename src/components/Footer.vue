@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="logo">
-      <img id="logo" src="../assets/images/triptick.svg" alt="triptick" />
+      <img id="logo" src="../assets/images/triptick.png" alt="triptick" />
     </div>
     <div class="socialMedia">
       <p>Connect With Us!</p>
@@ -75,10 +75,17 @@ footer {
   flex-direction: row;
 }
 ul {
-  margin: 0;
+  margin: 10px;
 }
 ul li {
   list-style-type: none;
   margin: 0 10px;
+}
+@media screen and (max-width: 768px) {
+  footer {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

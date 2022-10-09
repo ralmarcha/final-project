@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <img id="taskLogo" src="../assets/images/task.png" alt="task image" />
     <h1>Add a New Task</h1>
     <div class="flex">
       <input
@@ -24,6 +25,7 @@
 
 <script setup>
 import { ref } from "vue";
+import Swal from "sweetalert2";
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 const emit = defineEmits(["childNewTask"]);
@@ -39,10 +41,38 @@ const errorMessage = ref("");
 const addNewTask = () => {
   if (title.value === "") {
     errorNoValue.value = true;
-    errorMessage.value = "Title is required.";
-    setTimeout(() => {
-      errorNoValue.value = false;
-    }, 3000);
+    // errorMessage.value = "Title is required.";
+    // setTimeout(() => {
+    //   errorNoValue.value = false;
+    // }, 3000);
+    let timerInterval;
+    Swal.fire({
+      title: "Title is required!",
+      // html: "I will close in <b></b> milliseconds.",
+      timer: 1500,
+      timerProgressBar: false,
+      background: "antiquewhite",
+      width: 300,
+      heigth: 100,
+      customClass: {
+        title: "swal2-title",
+      },
+      didOpen: () => {
+        Swal.showLoading();
+        const b = Swal.getHtmlContainer().querySelector("b");
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft();
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("I was closed by the timer");
+      }
+    });
   } else {
     const newTask = {
       title: title.value,
@@ -63,17 +93,22 @@ const addNewTask = () => {
   width: 100%;
   margin-bottom: 20px;
 }
+#taskLogo {
+  width: 150px;
+  margin-top: 10px;
+  transform: rotate(-15deg);
+}
 h1 {
-  padding-top: 50px;
   color: #79351f;
   font-size: 24px;
   font-weight: 400;
   text-align: center;
+  margin-bottom: 30px;
 }
 .container {
   outline: 1px solid #79351f;
   outline-offset: -10px;
-  width: 400px;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -87,7 +122,7 @@ input {
   background-image: none;
   border: 1px solid #79351f;
   color: #79351f;
-
+  margin-bottom: 30px;
   transition: all 0.4s ease;
 }
 input:focus,
@@ -127,5 +162,17 @@ button:hover {
 .flex {
   display: flex;
   flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 10px;
+  }
+  #taskLogo {
+    display: none;
+  }
+  h1 {
+    margin-top: 30px;
+  }
 }
 </style>

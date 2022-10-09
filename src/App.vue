@@ -37,5 +37,8 @@ onMounted(async () => {
 * {
   max-width: 1200px;
   align-items: center;
+  font-family: "Roboto Mono", monospace;
+  padding: 0;
+  margin: 0;
 }
 </style>

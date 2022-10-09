@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { supabase } from "../supabase";
+import Swal from "sweetalert2";
 export const useUserStore = defineStore("user", {
   state: () => ({
     user: null,
@@ -35,7 +36,19 @@ export const useUserStore = defineStore("user", {
     async signOut() {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
-      alert("See you soon!");
+      // alert("See you soon!");
+      // Swal.fire("See you soon!");
+      Swal.fire({
+        title: "See you soon!",
+        text: "Keep yoour dreams organized 🧡",
+        imageUrl:
+          "https://www.vanessatravels.net/wp-content/uploads/2020/11/viajar-en-furgoneta-camper-libertad-1024x724.jpg.webp",
+        imageWidth: 400,
+        imageHeight: 250,
+        imageAlt: "Bye van",
+        confirmButtonColor: "#63a1a5",
+        background: "antiquewhite",
+      });
     },
 
     persist: {

@@ -31,6 +31,7 @@ div {
   position: relative;
   width: 90%;
   margin: 20px 0;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
 }
 div::before {
   content: "";
@@ -55,5 +56,12 @@ h3 {
   color: white;
   font-size: 28px;
   font-weight: 300;
+}
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 24px;
+    height: 150px;
+    margin-top: 40px;
+  }
 }
 </style>

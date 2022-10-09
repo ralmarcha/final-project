@@ -1,3 +1,10 @@
+.swal2-popup {
+  font-size: 0.8rem;
+}
+.swal2-title {
+  font-weight: 300;
+}
+
 /* @import "./base.css"; */
 
 /* #app {
@@ -51,6 +58,7 @@ color: #f3a127;
 color: #f4a127;
 color: #d2864c ;
 color: #fcbe6b;
+color: #feecb7;
 color: #feebb3;
 color: #fadfb0;
 color: #406c6c;

@@ -54,22 +54,28 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - NewTask Style
 - TaskItem Style (edit form pending)
 
+**_Completed_**
+
+- SweetAlerts for deleteTask, addNewTaskerror & logOut
+- Edit form Style
+- responsive HomeView
+
 ### 10/10/2022
 
 **_Targets_**
 
-- Edit form Style
 - SignIn & SignUp Styles
 
-**TASK LIST**
+  **TASK LIST**
 
-- [ ] quitar description required del edit taskitem, solo title
+- [x] quitar description required del edit taskitem, solo title
+- [ ] alert messages error signin
 - [x] decidir diseño global
 - [x] buscar logos e imágenes
 - [ ] responsive
 - [x] NewTask style
 - [x] TaskItem style
-- [ ] edit form style
+- [x] edit form style
 - [x] introducir fecha (momentjs)
 - [x] NavBar + style + logOut
 - [x] Burger Menu
