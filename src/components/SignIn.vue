@@ -2,7 +2,6 @@
   <div class="container">
     <div class="left">
       <div class="div1">
-        <!-- <img class="paint" src="../assets/images/pintura.png" alt="paint" /> -->
         <img class="icon" src="../assets/images/ttlogo.svg" alt="tt logo" />
       </div>
       <div class="div2">
@@ -13,18 +12,8 @@
         />
         <h2>Your Trip Begins Here!</h2>
       </div>
-
-      <!-- <PersonalRouter :route="route" :buttonText="buttonText" /> -->
-
-      <p v-if="errorMsg" class="errorInput">
-        {{ errorMsg }}
-      </p>
-
       <div class="div3">
         <form @submit.prevent="signIn" class="div3">
-          <!-- <div class="txt_field"> -->
-          <!-- <label class="labelEmail" for="">Email</label> -->
-
           <input
             class="inputEmail"
             type="email"
@@ -33,11 +22,6 @@
             id="email"
           />
           <br />
-          <!-- </div>
-          <div class="txt_field"> -->
-          <!-- <label class="labelPassword" for="">Password</label> -->
-
-          <!-- <div class="inputPassword"> -->
           <input
             class="passwordInputType"
             :type="passwordFieldType"
@@ -46,20 +30,13 @@
             v-model="password"
             id="password"
           />
-
-          <!-- <span class="">
-            <EyeIcon
-              :class="[passwordFieldIcon]"
-              @click.prevent="hidePassword = !hidePassword"
-            />
-          </span> -->
-          <!-- </div> -->
-          <!-- </div> -->
+          <p v-if="errorMsg" class="errorInput">
+            {{ errorMsg }}
+          </p>
           <button class="signin" type="submit">Sign In</button>
           <br />
           <p class="signUp">
             <span class="">Don’t have an account? </span>
-
             <PersonalRouter
               id="signUp"
               :route="route"
@@ -241,6 +218,9 @@ input:focus::placeholder {
 #signUp {
   color: #5a3d2b;
   font-weight: 600;
+}
+#signUp:hover {
+  font-size: 1.2rem;
 }
 button {
   margin-top: 30px;

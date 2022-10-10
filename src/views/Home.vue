@@ -31,7 +31,6 @@ import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
-import Nav from "../components/Nav.vue";
 import NewNav from "../components/NewNav.vue";
 import Date from "../components/Date.vue";
 import Footer from "../components/Footer.vue";

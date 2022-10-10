@@ -50,10 +50,12 @@
             v-model="confirmPassword"
             id="confirmPassword"
           />
-
+          <p v-if="errorMsg" class="errorInput">
+            {{ errorMsg }}
+          </p>
           <button class="signUp" type="submit">Sign Up</button>
           <p class="signUp">
-            <span class="">Have an account? </span><br />
+            <span class="">Have an account? </span>
             <PersonalRouter
               id="signIn"
               :route="route"
@@ -71,6 +73,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
+import Swal from "sweetalert2";
 // Route Variables
 const route = "/auth/login";
 const buttonText = "Sign In";
@@ -89,10 +92,17 @@ async function signUp() {
   if (password.value === confirmPassword.value) {
     try {
       await useUserStore().signUp(email.value, password.value);
-      if (error) throw error;
-      redirect.push({ path: "/auth" });
+      Swal.fire({
+        title: "Thank You for signing up!🧡",
+        text: "Please, check your inbox",
+        showConfirmButton: false,
+        timer: 3500,
+        background: "antiquewhite",
+      });
+
+      redirect.push({ path: "/auth/login" });
     } catch (error) {
-      errorMsg.value = error.message;
+      errorMsg.value = "E-mail & Password required";
       setTimeout(() => {
         errorMsg.value = null;
       }, 5000);
@@ -127,6 +137,7 @@ async function signUp() {
 .icon {
   width: 100px;
   align-self: flex-start;
+  margin-bottom: 20px;
 }
 
 #travel {
@@ -239,6 +250,9 @@ input:focus::placeholder {
   color: #5a3d2b;
   font-weight: 600;
 }
+#signIn:hover {
+  font-size: 1.2rem;
+}
 button {
   margin: 30px;
   align-items: center;
@@ -260,14 +274,14 @@ button:hover {
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 768px) {
-  .left {
+  .rigth {
     display: none;
   }
   * {
     margin: 0;
     padding: 0;
   }
-  .rigth {
+  .left {
     margin-left: 20px;
     justify-content: center;
     align-items: center;
@@ -311,7 +325,7 @@ button:hover {
   input {
     width: 90%;
   }
-  .left {
+  .rigth {
     display: none;
   }
 }

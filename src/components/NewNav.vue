@@ -7,7 +7,6 @@
         /></RouterLink>
         <RouterView />
       </div>
-
       <div class="displayOnMobile" id="userIcon" @click="openUserMenu">
         <span class="bar" :class="{ 'icon-active': mobileNav }"></span>
         <span class="bar" :class="{ 'icon-active': mobileNav }"></span>
@@ -35,7 +34,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { RouterLink, RouterView } from "vue-router";
 import { useUserStore } from "../stores/user";

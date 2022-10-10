@@ -71,21 +71,8 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - SignIn& SignUp Styles
 - Refactoring
 
-  **TASK LIST**
+### 11/10/2022
 
-- [x] quitar description required del edit taskitem, solo title
-- [x] alert messages error signin
-- [x] decidir diseño global
-- [x] buscar logos e imágenes
-- [x] responsive
-- [x] NewTask style
-- [x] TaskItem style
-- [x] edit form style
-- [x] introducir fecha (momentjs)
-- [x] NavBar + style + logOut
-- [x] Burger Menu
-- [ ] Mensaje "thanks for signup" o "chekinbox" o similar
-- [x] Footer + style (falta responsive)
-- [x] SignIn/Up style
-- [ ] hacer listas por temas¿?añadir imagen de perfil¿?o icono personalixazado en la tarea¿?
-- [ ] deploy Vercel
+**_Targets_**
+
+- Create New Lists
