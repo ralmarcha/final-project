@@ -21,8 +21,7 @@
       </p>
 
       <div class="div3">
-        <h2>Sign In</h2>
-        <form @submit.prevent="signIn">
+        <form @submit.prevent="signIn" class="div3">
           <!-- <div class="txt_field"> -->
           <!-- <label class="labelEmail" for="">Email</label> -->
 
@@ -47,6 +46,7 @@
             v-model="password"
             id="password"
           />
+
           <!-- <span class="">
             <EyeIcon
               :class="[passwordFieldIcon]"
@@ -56,8 +56,10 @@
           <!-- </div> -->
           <!-- </div> -->
           <button class="signin" type="submit">Sign In</button>
+          <br />
           <p class="signUp">
             <span class="">Don’t have an account? </span>
+
             <PersonalRouter
               id="signUp"
               :route="route"
@@ -66,8 +68,6 @@
           </p>
         </form>
       </div>
-    </div>
-    <div class="rigth">
       <div class="div4">
         <img
           id="travel"
@@ -75,9 +75,9 @@
           alt="time to travel"
         />
       </div>
-      <div class="div5">
-        <img src="../assets/images/portadafoto.png" alt="camper" />
-      </div>
+    </div>
+    <div class="rigth">
+      <img class="camper" src="../assets/images/portadafoto.png" alt="camper" />
     </div>
   </div>
 </template>
@@ -131,8 +131,8 @@ const signIn = async () => {
 test
 <style scoped>
 .container {
-  max-width: 1100px;
-  /* height: 100vh; */
+  max-width: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -141,58 +141,53 @@ test
 .left {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 60%;
-  align-items: flex-start;
   margin-left: 80px;
 }
-.rigth {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-}
+
 .icon {
   width: 100px;
 }
 
 #travel {
   width: 200px;
-  padding-left: 100px;
-  margin-top: 60px;
 }
-.div5 {
-  padding: 0;
-  margin: 0;
-  left: 0px;
-  top: 0px;
+.rigth {
+  width: 40%;
 }
+
 .div2 {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+}
+.camper {
+  margin-top: 200px;
 }
 
 .logo {
   width: 350px;
 }
-/*
+
 .errorInput {
-  border: 1.5px solid #f24452;
-  box-shadow: 0px 2px 13px -10px #f24452;
-} */
+  color: #c42727;
+}
 .div3 {
   box-sizing: border-box;
   position: relative;
-  display: block;
-  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 350px;
   height: 300px;
-  border-radius: 5px;
+
   overflow: hidden;
   z-index: 1;
 }
-.div3 h2 {
+h2 {
   text-align: center;
   padding: 10px;
-  font-weight: lighter;
   text-transform: uppercase;
   color: #5a3d2b;
 }
@@ -216,8 +211,10 @@ input:active:focus {
   color: #cf4e3e;
   outline: none;
   border-bottom: 1px solid #cf4e3e;
+  background-color: #e4e3ce;
+  height: 70px;
 }
-input:active:focus::placeholder {
+input:focus::placeholder {
   color: #cf4e3e;
   -webkit-transform: translateY(-20px);
   transform: translateY(-20px);
@@ -234,11 +231,10 @@ input:active:focus::placeholder {
   transition: 0.5s;
 }
 .signUp {
-  margin-top: 20px;
+  margin-top: 10px;
   text-decoration: none;
   display: inline-block;
   color: #5a3d2b;
-
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -247,7 +243,7 @@ input:active:focus::placeholder {
   font-weight: 600;
 }
 button {
-  margin-top: 20px;
+  margin-top: 30px;
   align-items: center;
   border: none;
   background: #807d48;
@@ -257,6 +253,7 @@ button {
   width: 100px;
   color: #5a3d2d;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 button:hover {
@@ -264,5 +261,61 @@ button:hover {
   -ms-transform: translateY(-3px);
   transform: translateY(-3px);
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+@media screen and (max-width: 768px) {
+  .rigth {
+    display: none;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .left {
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .container {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  .icon {
+    width: 80px;
+  }
+  .logo {
+    width: 250px;
+  }
+  #travel {
+    width: 150px;
+    align-items: center;
+  }
+  input {
+    width: 70%;
+  }
+  .div3 {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  * {
+    font-size: 1rem;
+  }
+  .logo {
+    width: 300px;
+  }
+  #travel {
+    width: 250px;
+    align-items: center;
+  }
+  input {
+    width: 90%;
+  }
+  .rigth {
+    display: none;
+  }
 }
 </style>

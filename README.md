@@ -68,15 +68,16 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 
 **_Completed_**
 
-- SignIn
+- SignIn& SignUp Styles
+- Refactoring
 
   **TASK LIST**
 
 - [x] quitar description required del edit taskitem, solo title
-- [ ] alert messages error signin
+- [x] alert messages error signin
 - [x] decidir diseño global
 - [x] buscar logos e imágenes
-- [ ] responsive
+- [x] responsive
 - [x] NewTask style
 - [x] TaskItem style
 - [x] edit form style
@@ -85,6 +86,6 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - [x] Burger Menu
 - [ ] Mensaje "thanks for signup" o "chekinbox" o similar
 - [x] Footer + style (falta responsive)
-- [ ] SignIn/Up style
+- [x] SignIn/Up style
 - [ ] hacer listas por temas¿?añadir imagen de perfil¿?o icono personalixazado en la tarea¿?
 - [ ] deploy Vercel
