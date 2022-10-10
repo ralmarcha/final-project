@@ -36,8 +36,7 @@ export const useUserStore = defineStore("user", {
     async signOut() {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
-      // alert("See you soon!");
-      // Swal.fire("See you soon!");
+
       Swal.fire({
         title: "See you soon!",
         text: "Keep yoour dreams organized 🧡",

@@ -66,6 +66,10 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 
 - SignIn & SignUp Styles
 
+**_Completed_**
+
+- SignIn
+
   **TASK LIST**
 
 - [x] quitar description required del edit taskitem, solo title

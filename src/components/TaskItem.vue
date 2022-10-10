@@ -33,22 +33,26 @@
     </div>
     <!-- EDIT FORM -->
     <form v-if="showForm" @submit.prevent="editTask" class="containerFormEdit">
-      <div v-if="errorHandle" class="errormsg">{{ error }}</div>
+      <div v-if="errorHandle" class="errorMsg">{{ error }}</div>
       <div class="inputEditTask">
-        <label for="inputEditTask-title"><i>Title:</i></label>
-        <input
-          id="inputEditTask-title"
-          type="text"
-          placeholder="Edit Title"
-          v-model="editTitle"
-        />
-        <label for="inputEditTask-desc"><i>Description:</i></label>
-        <input
-          id="inputEditTask-desc"
-          type="text"
-          placeholder="Edit Description"
-          v-model="editDescription"
-        />
+        <div class="title">
+          <label for="inputEditTask-title"><i>Title:</i></label>
+          <input
+            id="inputEditTask-title"
+            type="text"
+            placeholder="Edit Title"
+            v-model="editTitle"
+          />
+        </div>
+        <div class="description">
+          <label for="inputEditTask-desc"><i>Description:</i></label>
+          <input
+            id="inputEditTask-desc"
+            type="text"
+            placeholder="Edit Description"
+            v-model="editDescription"
+          />
+        </div>
       </div>
 
       <button id="editButton" type="submit">Save</button>
@@ -160,6 +164,8 @@ img {
 .taskEdit {
   display: flex;
   flex-direction: row;
+  width: 45%;
+  padding-right: 10px;
 }
 .taskEdit:hover {
   cursor: pointer;
@@ -182,20 +188,31 @@ img {
   padding-left: 10px;
 }
 .containerFormEdit {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: fit-content;
   margin-bottom: 20px;
   background-color: #bcbb85;
-  width: 80%;
+  width: 90%;
   align-content: center;
   align-items: center;
   padding: 5px 10px;
 }
-
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 input:focus,
 textarea:focus {
   outline: none;
-
+  background-color: #feecb7;
   opacity: 0.5;
   transition: ease-in-out, width 0.35s ease-in-out;
 }
@@ -208,8 +225,9 @@ textarea:focus {
 button {
   flex: 1;
   height: 30px;
-  max-width: 50px;
+  max-width: 60px;
   border-radius: 5px;
+  padding: 8px;
   border: 1px solid #807d48;
   background-color: #d2864c;
   color: #79351f;
@@ -219,19 +237,34 @@ button {
 }
 
 .inputEditTask {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
   height: fit-content;
+
   color: black;
   font-size: 12px;
   background-color: #bcbb85;
+  align-items: center;
+  text-align: center;
+  /* width: 50%; */
 }
 #inputEditTask-title {
   padding: 5px 10px;
   margin-bottom: 10px;
+  border: 1px solid #79351f;
+  font-style: italic;
 }
 #inputEditTask-desc {
   padding: 5px 10px;
   margin-bottom: 10px;
+  border: 1px solid #79351f;
+  font-style: italic;
 }
+label {
+  width: 40%;
+}
+
 @media screen and (max-width: 768px) {
   .taskItem {
     width: 100%;
