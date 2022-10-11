@@ -2,11 +2,18 @@
   <div id="homeContainer">
     <NewNav />
     <Date />
-
-    <NewList @childNewGroup="addGroupTodo" />
-
-    <ListItem v-for="(item, index) in groupArray" :key="index" :group="item" />
-    <!-- @emitGroup="groupList" -->
+    <div id="lists">
+      <div id="listItem">
+        <TransitionGroup name="listTran">
+          <ListItem
+            id="item"
+            v-for="(item, index) in groupArray"
+            :key="index"
+            :group="item"
+        /></TransitionGroup>
+      </div>
+      <NewList id="newList" @childNewGroup="addGroupTodo" />
+    </div>
     <Footer />
   </div>
 </template>
@@ -59,34 +66,41 @@ function extractGroups(extract) {
   font-family: "Roboto Mono", monospace;
   padding: 0;
   margin: 0;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
+}
+#newList {
+  margin-bottom: 50px;
 }
 #homeContainer {
   display: flex;
   flex-direction: column;
-  margin: 10px 10px 20px 200px;
 }
-#tasks {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+#lists {
+  width: 80%;
 }
-.taskTran-enter-active {
+#item {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+#listItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.listTran-enter-active {
   transition: all 0.8s ease-out;
 }
-.taskTran-leave-active {
+.listTran-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.taskTran-enter-from,
-.taskTran-leave-to {
+.listTran-enter-from,
+.listTran-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }
 @media screen and (max-width: 768px) {
-  #tasks {
-    display: flex;
-    flex-direction: column;
-  }
   #homeContainer {
     margin: 10px;
   }

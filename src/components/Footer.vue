@@ -42,7 +42,7 @@ function currentYear() {
 
 <style scoped>
 footer {
-  /* position: absolute; */
+  margin-top: 40px;
   bottom: 0;
   width: 100%;
   height: 150px;

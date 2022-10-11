@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <img id="taskLogo" src="../assets/images/list.jpg" alt="list image" />
     <h1>Add a New List</h1>
     <div class="flex">
       <input
@@ -19,6 +18,7 @@
 
 <script setup>
 import { ref } from "vue";
+import Swal from "sweetalert2";
 
 const emit = defineEmits(["childNewGroup"]);
 
@@ -31,6 +31,32 @@ const errorMessage = ref("");
 const addNewGroup = () => {
   if (group.value === "") {
     errorNoValue.value = true;
+    let timerInterval;
+    Swal.fire({
+      title: "Title is required!",
+      timer: 1500,
+      timerProgressBar: false,
+      background: "antiquewhite",
+      width: 300,
+      heigth: 100,
+      customClass: {
+        title: "swal2-title",
+      },
+      didOpen: () => {
+        Swal.showLoading();
+        const b = Swal.getHtmlContainer().querySelector("b");
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft();
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("I was closed by the timer");
+      }
+    });
   } else {
     const newGroup = {
       group: group.value,
@@ -44,7 +70,7 @@ const addNewGroup = () => {
 <style scoped>
 * {
   align-content: center;
-  background-color: #fcbe6b;
+  background-color: #63a1a5;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -54,14 +80,15 @@ const addNewGroup = () => {
   transform: rotate(-15deg);
 }
 h1 {
-  color: #79351f;
+  color: #203636;
   font-size: 24px;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 30px 0;
+  padding-top: 20px;
 }
 .container {
-  outline: 1px solid #79351f;
+  outline: 1px solid #406c6c;
   outline-offset: -10px;
   width: 100%;
   margin-top: 20px;
@@ -70,25 +97,25 @@ h1 {
 input {
   font-size: 16px;
   display: block;
-  width: 80%;
+  width: 60%;
   height: 100%;
   padding: 5px 10px;
   background: none;
   background-image: none;
-  border: 1px solid #79351f;
-  color: #79351f;
+  border: 1px solid #406c6c;
+  color: #406c6c;
   margin-bottom: 30px;
   transition: all 0.4s ease;
 }
 input:focus,
 textarea:focus {
   outline: none;
-  background-color: #feecb7;
+  background-color: #74c8ae;
   opacity: 0.5;
   transition: ease-in-out, width 0.35s ease-in-out;
 }
 ::placeholder {
-  color: #79351f;
+  color: #406c6c;
   font-size: 12px;
   opacity: 0.7;
   font-style: italic;
@@ -99,9 +126,9 @@ button {
   max-width: 100px;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #807d48;
-  background-color: #d2864c;
-  color: #79351f;
+  border: 1px solid #203636;
+  background-color: #b2c4c4;
+  color: #203636;
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -111,7 +138,7 @@ button:hover {
   -webkit-transform: translateY(-3px);
   -ms-transform: translateY(-3px);
   transform: translateY(-3px);
-  box-shadow: 0 6px 6px 0 #5a3d2b;
+  box-shadow: 0 6px 6px 0 #74c8ae;
   transition: all 0.3s ease-in-out;
 }
 .flex {
