@@ -134,7 +134,12 @@ const removeTask = () => {
   }).then((result) => {
     if (result.isConfirmed) {
       emit("emitRemove", props.task);
-      Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        background: "antiquewhite",
+        confirmButtonColor: "#f3a127",
+      });
     }
   });
 };
@@ -153,7 +158,6 @@ const showDescription = ref(false);
   flex-direction: row;
   outline: 1px solid #79351f;
   outline-offset: -5px;
-  /* width: 450px; */
 }
 .container {
   margin-bottom: 20px;
@@ -169,6 +173,10 @@ img {
 }
 .taskEdit:hover {
   cursor: pointer;
+}
+.errorMsg {
+  color: #c42727;
+  text-align: center;
 }
 
 #desc {

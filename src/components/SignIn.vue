@@ -96,7 +96,6 @@ const signIn = async () => {
     redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
-    // errorMsg.value = `Error: ${error.message}`;
     errorMsg.value = "E-mail & Password required";
     // hides error message
     setTimeout(() => {
@@ -220,7 +219,7 @@ input:focus::placeholder {
   font-weight: 600;
 }
 #signUp:hover {
-  font-size: 1.2rem;
+  text-decoration: underline;
 }
 button {
   margin-top: 30px;

@@ -1,85 +1,60 @@
 <template>
   <div id="homeContainer">
-    <!-- 2. (NewTask, TaskItem, Footer, Nav) components are used here!  -->
     <NewNav />
     <Date />
-    <!-- 5. NewTask component will receive a customEvent on this instance of the homeView that will fire the add-to-do function -->
-    <div id="tasks">
-      <NewTask @childNewTask="addTaskTodo" />
 
-      <!-- 
-7. TaskItem component will loop through the tasks-array that will print an individual instance of an individual TaskItem component. TaskItem will receive 3 customEvents on this instance of the homeView. 1 customEvent for toggling the task to show either a text or an icon to display if the task is completed or not completed. 1 customEevent for removing/deleting the task out of the array. 1 customEvent for editing the task title and description. -->
-      <div id="taskItem">
-        <TransitionGroup name="taskTran">
-          <TaskItem
-            v-for="(item, index) in taskArray"
-            :key="index"
-            :task="item"
-            @emitRemove="deleteTask"
-            @emitEdit="editTask"
-            @emitStatus="checkTask"
-        /></TransitionGroup>
-      </div>
-    </div>
+    <NewList @childNewGroup="addGroupTodo" />
+
+    <ListItem v-for="(item, index) in groupArray" :key="index" :group="item" />
+    <!-- @emitGroup="groupList" -->
     <Footer />
   </div>
 </template>
 
 <script setup>
-//1. ref() is used here!
-import NewTask from "../components/NewTask.vue";
-import TaskItem from "../components/TaskItem.vue";
 import { ref } from "vue";
 import { useTaskStore } from "../stores/task";
 import NewNav from "../components/NewNav.vue";
 import Date from "../components/Date.vue";
 import Footer from "../components/Footer.vue";
+import NewList from "../components/NewList.vue";
+import ListItem from "../components/ListItem.vue";
 
-// nos definimos la tienda del usuario dentro de una constante
 const taskStore = useTaskStore();
-// 3. Tasks are going to be contained in an array here!
-let taskArray = ref([]);
 
-// 4. An async function is needed to get all of the tasks stored within the supabase database, this async function's body will contain the tasks value which be use to store the fetchTasks method which lives inside the userTaskStore. This function needs to be called within the setUp script in order to run within the first instance of this component lifecycle.
+const groupArray = ref([]);
+
 async function readFromStore() {
-  taskArray.value = await taskStore.fetchTasks();
+  groupArray.value = await taskStore.fetchTasks();
+  console.log(groupArray.value[0].group);
+  groupArray.value = extractGroups(groupArray);
 }
 readFromStore();
-// 6. add-to-do function will receive 2 params/arguments that will tak a taskTitle and a taskDescription and the body of this async function will call the taskStore that calls the addTask function from the store that pushes the info of the task to the backEnd. This is possible by passing the 2 param/arguments that will be passed by the user from the inputs within the NewTask Component.
-async function addTaskTodo(task) {
-  await taskStore.addTask(task.title, task.description);
+
+async function addGroupTodo(task) {
+  await taskStore.addGroup(task.group);
   readFromStore();
 }
-
-//7.1-customEvent will fire an async function that will take in 1 param/argument. On the body of this function the param/argument will be used to define 2 constants. 1 of this constants will take care of setting the boolean value to the opposite of the value that checks wether this task is_complete. 1 of this constants will take of calling the id of this specific task in order to call the right id.
-async function checkTask(task) {
-  const saveBoolean = !task.is_complete;
-  const saveId = task.id;
-  await taskStore.checkStatus(saveBoolean, saveId);
-  readFromStore();
-}
-
-//7.2-customEvent will fire an asynf function that will take in 1 param/argument. This async function's body will be used to call the deleteTaskmethod which will take the param/argument's id in order to delete the task. This function needs to call the function mentioned on hint4.
-async function deleteTask(task) {
+async function groupList(task) {
   const taskId = task.id;
-  await taskStore.deleteTask(taskId);
+  const groupNew = task.group;
+  await taskStore.groupList(groupNew, taskId);
   readFromStore();
 }
 
-//7.3-customEvent will fire an async function that will take in 1 param/argument. this async function's body will be used to take in 2 constants. 1 constant will take in the param/argument newValue. 1 constant will be used to get the param/argument oldValue id. These 2 constants will be sent to the backend via the useTaskStore which holds an editTask method. This function needs to call the function mentioned on hint4.
-
-async function editTask(task) {
-  const newTitle = task.newTitle;
-  const newDescription = task.newDescription;
-  const id = task.oldValue.id;
-  await taskStore.editTask(newTitle, newDescription, id);
-  readFromStore();
+function extractGroups(extract) {
+  let arrayResult = [];
+  for (let i = 0; i < extract.value.length; i++) {
+    arrayResult[i] = extract.value[i].group;
+  }
+  console.log(arrayResult);
+  arrayResult = [...new Set(arrayResult)];
+  console.log(arrayResult);
+  return arrayResult;
 }
 </script>
 
 <style>
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap");
-font-family: 'Poppins', sans-serif; */
 * {
   font-family: "Roboto Mono", monospace;
   padding: 0;

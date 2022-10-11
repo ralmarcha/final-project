@@ -251,7 +251,7 @@ input:focus::placeholder {
   font-weight: 600;
 }
 #signIn:hover {
-  font-size: 1.2rem;
+  text-decoration: underline;
 }
 button {
   margin: 30px;

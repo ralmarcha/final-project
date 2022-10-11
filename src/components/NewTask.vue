@@ -41,14 +41,9 @@ const errorMessage = ref("");
 const addNewTask = () => {
   if (title.value === "") {
     errorNoValue.value = true;
-    // errorMessage.value = "Title is required.";
-    // setTimeout(() => {
-    //   errorNoValue.value = false;
-    // }, 3000);
     let timerInterval;
     Swal.fire({
       title: "Title is required!",
-      // html: "I will close in <b></b> milliseconds.",
       timer: 1500,
       timerProgressBar: false,
       background: "antiquewhite",
@@ -68,7 +63,6 @@ const addNewTask = () => {
         clearInterval(timerInterval);
       },
     }).then((result) => {
-      /* Read more about handling dismissals below */
       if (result.dismiss === Swal.DismissReason.timer) {
         console.log("I was closed by the timer");
       }

@@ -14,9 +14,14 @@
       </div>
 
       <div class="dontDisplayOnMobile" id="navigation">
-        <p class="link">
-          Nice to see you <span>{{ name }}</span>
-        </p>
+        <div class="link">
+          <RouterLink class="rout" to="/"> Home</RouterLink>
+          <RouterLink class="rout" to="/list"> List</RouterLink>
+          <p>
+            Nice to see you <span>{{ name }}</span>
+          </p>
+        </div>
+
         <button type="submit" @click="logOut">LogOut</button>
       </div>
     </div>
@@ -26,6 +31,8 @@
         class="displayOnMobile displayNone"
         id="mobileUserMenu"
       >
+        <RouterLink class="rout-drop" to="/"> Home</RouterLink>
+        <RouterLink class="rout-drop" to="/list"> List</RouterLink>
         <p class="link-drop" @click="logOut">LogOut</p>
       </nav>
     </Transition>
@@ -78,7 +85,6 @@ img {
 header {
   z-index: 99;
   width: 100%;
-  /* position: fixed; si scrolldown se queda */
   transition: 0.5s ease all;
 }
 #displayFlex {
@@ -88,7 +94,7 @@ header {
   align-items: center;
   width: 90%;
   margin: 0 auto;
-  height: 80px; /*meu*/
+  height: 80px;
   padding: 12px 0;
   transition: 0.5s ease all;
   @media (min-width: 1140px) {
@@ -96,8 +102,20 @@ header {
   }
 }
 .link {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  gap: 40px;
   transition: 0.5s ease all;
   font-size: 0.8rem;
+}
+.rout {
+  color: #6c4040;
+  font-size: 1rem;
+  text-decoration-line: none;
+}
+.rout:hover {
+  text-decoration-line: underline;
 }
 
 * {
@@ -172,6 +190,7 @@ hr {
   }
   #mobileUserMenu {
     position: fixed;
+    display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 100px;
@@ -179,6 +198,15 @@ hr {
     background-color: antiquewhite;
     padding: 60px 20px 0 20px;
     top: 0;
+  }
+  .rout-drop {
+    color: #6c4040;
+    font-size: 1rem;
+    text-decoration-line: none;
+    margin-bottom: 30px;
+  }
+  .rout-drop:hover {
+    text-decoration-line: underline;
   }
   .link-drop {
     margin-left: 0;
