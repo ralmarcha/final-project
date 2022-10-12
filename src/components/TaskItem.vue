@@ -1,11 +1,7 @@
 <template>
   <div class="container">
     <div class="taskItem">
-      <div
-        class="taskContainer"
-        v-on:mouseover="showDescription = !showDescription"
-        v-on:mouseleave="showDescription = !showDescription"
-      >
+      <div class="taskContainer" @click="showDescription = !showDescription">
         <p id="title">{{ task.title }}</p>
 
         <p id="desc" v-if="showDescription">
@@ -92,8 +88,6 @@ const toggleStatus = () => {
   emit("emitStatus", props.task);
 };
 
-//4. Function to handle the error with the data properties used to control the error and the the boolean controlling the boolean empty variable.
-//7. Function to edit the task information that you decided that the user can edit. This function's body takes in a conditional that first checks if the value of the task [either title and description or just title] is empty which if true it runs the function used to handle the error on hint4. Else, the conditional sets the first mentioned boolean data property on hint2 back to its inital boolean value to hide the error message and repeat the same for the data property mentioned 4th on hint2; a constant that stores an object that holds the oldValue from the prop item and the value of the task coming from the data property mentioned 3rd on hint2; a custom event emit() that takes 2 parameters a name for the custom event and the value from the object used on this part of the conditional and lastly this part of the conditional sets the value of input field to an empty string to clear it from the ui.
 const editTask = () => {
   if (editTitle.value === "") {
     error.value = "Enter text for title";
@@ -189,6 +183,8 @@ img {
   height: fit-content;
   margin-top: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 .taskContainer {
   display: flex;
@@ -249,14 +245,13 @@ button {
   flex-direction: column;
   width: 60%;
   height: fit-content;
-
   color: black;
   font-size: 12px;
   background-color: #bcbb85;
   align-items: center;
   text-align: center;
-  /* width: 50%; */
 }
+
 #inputEditTask-title {
   padding: 5px 10px;
   margin-bottom: 10px;

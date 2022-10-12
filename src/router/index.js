@@ -3,7 +3,6 @@ import Auth from "../views/Auth.vue";
 import Home from "../views/Home.vue";
 import SignIn from "../components/SignIn.vue";
 import SignUp from "../components/SignUp.vue";
-import ListView from "../views/ListView.vue";
 
 const routes = [
   {
@@ -15,7 +14,6 @@ const routes = [
     ],
   },
   { path: "/", component: Home },
-  { path: "/list", component: ListView },
 ];
 const router = createRouter({
   history: createWebHistory(),

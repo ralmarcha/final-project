@@ -16,34 +16,15 @@ export const useTaskStore = defineStore("tasks", {
       return this.tasks;
     },
 
-    //  Add List
-    async addGroup(group) {
-      const { data, error } = await supabase.from("tasks").insert([
-        {
-          user_id: useUserStore().user.id,
-          group: group,
-        },
-      ]);
-    },
-
-    //Group list
-    async groupList(group, id) {
-      const { data, error } = await supabase
-        .from("tasks")
-        .select(id)
-        .match({ group: group });
-      return data;
-    },
-
     //  Add Tasks
-    async addTask(title, description) {
+    async addTask(title, description, group) {
       const { data, error } = await supabase.from("tasks").insert([
         {
           user_id: useUserStore().user.id,
           title: title,
           is_complete: false,
           description: description,
-          date: date,
+          group: group,
         },
       ]);
     },
