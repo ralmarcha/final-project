@@ -79,5 +79,13 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - Create New Lists
 - Listed by group
 
+### 12/10/2022
+
+**_Targets_**
+
+- Adjust responsive
+- Create New Lists
+- Listed by group
+
 DEPLOYMENT: https://final-project-three-cyan.vercel.app/auth/login
 SLIDES:

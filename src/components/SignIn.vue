@@ -30,6 +30,12 @@
             v-model="password"
             id="password"
           />
+          <i
+            :class="passwordIconClick"
+            @click.prevent="hidePassword = !hidePassword"
+            class="material-icons iconEye"
+            >{{ icon }}</i
+          >
           <p v-if="errorMsg" class="errorInput">
             {{ errorMsg }}
           </p>
@@ -75,10 +81,18 @@ const buttonText = "Sign Up";
 const email = ref("");
 const password = ref("");
 
+const icon = ref("visibility_off");
+
 // Error Message
 const errorMsg = ref("");
 
 //Show hide password variables
+const passwordIconClick = computed(() =>
+  hidePassword.value
+    ? (icon.value = "visibility_off")
+    : (icon.value = "visibility")
+);
+
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
@@ -125,6 +139,16 @@ test
 .icon {
   width: 100px;
 }
+.iconEye {
+  cursor: pointer;
+  color: #79351f;
+  position: absolute;
+  z-index: 1;
+  top: 85px;
+  right: 40px;
+  font-size: 20px;
+  opacity: 0.8;
+}
 
 #travel {
   width: 200px;
@@ -157,10 +181,10 @@ test
   justify-content: center;
   width: 350px;
   height: 300px;
-
   overflow: hidden;
   z-index: 1;
 }
+
 h2 {
   text-align: center;
   padding: 10px;
@@ -242,12 +266,19 @@ button:hover {
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 768px) {
-  .rigth {
+  * {
+    margin-top: 0;
+    padding: 0;
+  }
+  .iconEye {
     display: none;
   }
-  * {
-    margin: 0;
-    padding: 0;
+  .icon {
+    margin-top: 90px;
+    width: 80px;
+  }
+  .rigth {
+    display: none;
   }
   .left {
     margin-left: 20px;
@@ -262,15 +293,13 @@ button:hover {
     align-items: center;
     font-size: 0.8rem;
   }
-  .icon {
-    width: 80px;
-  }
   .logo {
     width: 250px;
   }
   #travel {
     width: 150px;
     align-items: center;
+    margin-top: 0;
   }
   input {
     width: 70%;
@@ -285,6 +314,12 @@ button:hover {
   }
   .logo {
     width: 300px;
+  }
+  .iconEye {
+    top: 60px;
+  }
+  .container {
+    width: 100%;
   }
   #travel {
     width: 250px;
