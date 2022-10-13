@@ -84,7 +84,16 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 **_Targets_**
 
 - Adjust responsive
+  LIBRARIES: momentjs, sweetAlert, material icons, google fonts
+  DEPLOYMENT: https://final-project-three-cyan.vercel.app/auth/login
+  SLIDES:
 
-LIBRARIES: momentjs, sweetAlert, material icons, google fonts
-DEPLOYMENT: https://final-project-three-cyan.vercel.app/auth/login
-SLIDES:
+### GIT BRANCH
+
+- git branch
+- nuevo branch: git checkout -b nuevobranch
+- cambiar de branch : git checkout nombrebranch
+
+### Kill Terminal Command
+
+control + c = kill terminal
