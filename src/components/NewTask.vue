@@ -162,8 +162,8 @@ button:hover {
 }
 @media screen and (max-width: 768px) {
   .container {
-    width: 100%;
     margin: 10px;
+    min-width: 200px;
   }
   #taskLogo {
     display: none;

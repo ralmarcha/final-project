@@ -2,13 +2,13 @@
   <div class="container">
     <div class="rigth">
       <div class="div1">
-        <img class="icon" src="../assets/images/ttlogo.svg" alt="tt logo" />
+        <img class="icon" src="../assets/images/TT.png" alt="tt logo" />
       </div>
       <img class="world" src="../assets/images/world.png" alt="world" />
       <div class="div4">
         <img
           id="travel"
-          src="../assets/images/travel.svg"
+          src="../assets/images/travel.png"
           alt="time to travel"
         />
       </div>
@@ -118,11 +118,10 @@ async function signUp() {
 
 <style scoped>
 .container {
-  max-width: 100vh;
-  height: 100vh;
+  margin-left: 60px;
+  margin-top: 40px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 100%;
   align-items: stretch;
 }
@@ -130,29 +129,27 @@ async function signUp() {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
   margin-left: 80px;
 }
 
 .icon {
-  width: 100px;
+  width: 80px;
   align-self: flex-start;
   margin-bottom: 20px;
 }
 
 #travel {
-  width: 200px;
+  width: 180px;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 .rigth {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-  right: 0;
 }
 
 .world {
-  margin: 40px 60px 40px 60px;
+  margin: 40px;
   width: 500px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   filter: blur(1px);
@@ -181,7 +178,6 @@ async function signUp() {
   justify-content: center;
   width: 350px;
   height: 300px;
-
   overflow: hidden;
   z-index: 1;
 }
@@ -200,7 +196,7 @@ h2 {
 input {
   display: block;
   height: 50px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   border: none;
 }
@@ -253,6 +249,7 @@ input:focus::placeholder {
 #signIn:hover {
   text-decoration: underline;
 }
+
 button {
   margin: 30px;
   align-items: center;
@@ -273,6 +270,7 @@ button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
+
 @media screen and (max-width: 768px) {
   .rigth {
     display: none;
@@ -282,6 +280,7 @@ button:hover {
     padding: 0;
   }
   .left {
+    margin-top: 70px;
     margin-left: 20px;
     justify-content: center;
     align-items: center;

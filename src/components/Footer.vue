@@ -42,13 +42,13 @@ function currentYear() {
 
 <style scoped>
 footer {
-  margin-top: 40px;
+  margin-top: 80px;
   bottom: 0;
-  width: 100%;
-  height: 150px;
+  width: 80%;
+  height: 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 #logo {

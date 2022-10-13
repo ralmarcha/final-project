@@ -30,7 +30,7 @@ div {
   padding: 20px;
   position: relative;
   width: 90%;
-  margin: 20px 0;
+  margin: 40px 0;
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
 }
 div::before {

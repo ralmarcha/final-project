@@ -88,14 +88,12 @@ async function editTask(task) {
 #homeContainer {
   display: flex;
   flex-direction: column;
-  margin: 10px 10px 20px 230px;
+  margin: 20px 100px;
   align-items: center;
 }
 #tasks {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px; */
-  margin-top: 40px;
+  margin-top: 10px;
+  min-width: none;
 }
 .taskTran-enter-active {
   transition: all 0.8s ease-out;
@@ -119,7 +117,7 @@ async function editTask(task) {
     margin: 10px;
   }
   #taskItem {
-    width: 90%;
+    width: 100%;
   }
 }
 </style>

@@ -12,18 +12,18 @@
       <!-- CHANGE STATUS -->
       <div class="taskEdit">
         <span v-if="task.is_complete" @click="toggleStatus" class="done"
-          ><img id="done" src="../assets/images/done.svg" alt="Done icon"
+          ><img id="done" src="../assets/images/done.png" alt="Done icon"
         /></span>
         <span v-if="!task.is_complete" @click="toggleStatus" class="notDone"
-          ><img id="notDone" src="../assets/images/notdone.svg" alt="Done icon"
+          ><img id="notDone" src="../assets/images/notdone.png" alt="Done icon"
         /></span>
         <!-- EDIT TASK -->
         <span class="edit" @click="handleForm"
-          ><img src="../assets/images/edit.svg" alt="Done icon"
+          ><img src="../assets/images/edit.png" alt="Edit icon"
         /></span>
         <!-- DELETE TASK -->
         <span class="delete" @click="removeTask"
-          ><img src="../assets/images/delete.svg" alt="Done icon"
+          ><img src="../assets/images/delete.png" alt="Delete icon"
         /></span>
       </div>
     </div>
@@ -152,12 +152,13 @@ const showDescription = ref(false);
   flex-direction: row;
   outline: 1px solid #79351f;
   outline-offset: -5px;
+  min-height: 60px;
 }
 .container {
   margin-bottom: 20px;
 }
 img {
-  width: 50px;
+  width: 40px;
 }
 .taskEdit {
   display: flex;
@@ -271,7 +272,6 @@ label {
 @media screen and (max-width: 768px) {
   .taskItem {
     width: 100%;
-    margin: 10px;
   }
   img {
     width: 40px;

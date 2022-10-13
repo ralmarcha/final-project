@@ -2,7 +2,7 @@
   <div class="container">
     <div class="left">
       <div class="div1">
-        <img class="icon" src="../assets/images/ttlogo.svg" alt="tt logo" />
+        <img class="icon" src="../assets/images/TT.png" alt="tt logo" />
       </div>
       <div class="div2">
         <img
@@ -22,27 +22,29 @@
             id="email"
           />
           <br />
-          <input
-            class="passwordInputType"
-            :type="passwordFieldType"
-            onpaste="return false"
-            placeholder="Password"
-            v-model="password"
-            id="password"
-          />
-          <i
-            :class="passwordIconClick"
-            @click.prevent="hidePassword = !hidePassword"
-            class="material-icons iconEye"
-            >{{ icon }}</i
-          >
+          <div class="pass">
+            <input
+              class="passwordInputType"
+              :type="passwordFieldType"
+              onpaste="return false"
+              placeholder="Password"
+              v-model="password"
+              id="password"
+            />
+            <i
+              :class="passwordIconClick"
+              @click.prevent="hidePassword = !hidePassword"
+              class="material-icons iconEye"
+              >{{ icon }}</i
+            >
+          </div>
           <p v-if="errorMsg" class="errorInput">
             {{ errorMsg }}
           </p>
           <button class="signin" type="submit">Sign In</button>
           <br />
           <p class="signUp">
-            <span class="">Don’t have an account? </span>
+            <span>Don’t have an account? </span>
             <PersonalRouter
               id="signUp"
               :route="route"
@@ -54,13 +56,10 @@
       <div class="div4">
         <img
           id="travel"
-          src="../assets/images/travel.svg"
+          src="../assets/images/travel.png"
           alt="time to travel"
         />
       </div>
-    </div>
-    <div class="rigth">
-      <img class="camper" src="../assets/images/portadafoto.png" alt="camper" />
     </div>
   </div>
 </template>
@@ -68,10 +67,8 @@
 <script setup>
 import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
-import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
-import { storeToRefs } from "pinia";
 
 // Route Variables
 const route = "/auth/sign-up";
@@ -121,40 +118,42 @@ const signIn = async () => {
 test
 <style scoped>
 .container {
-  max-width: 100vh;
-  height: 100vh;
   display: flex;
   flex-direction: row;
   width: 100%;
   align-items: stretch;
+  background-image: url(../assets/images/portadafoto.png);
+  background-repeat: no-repeat;
+  background-size: 65%;
+  background-position: bottom right;
 }
 .left {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
-  margin-left: 80px;
+  padding-left: 80px;
 }
-
+.pass {
+  position: relative;
+  width: 100%;
+}
 .icon {
-  width: 100px;
+  width: 80px;
+  margin-top: 20px;
 }
 .iconEye {
   cursor: pointer;
   color: #79351f;
   position: absolute;
-  z-index: 1;
-  top: 90px;
-  right: 40px;
+  top: 28%;
+  right: 8%;
+  z-index: 2;
   font-size: 20px;
   opacity: 0.8;
 }
 
 #travel {
-  width: 200px;
-}
-.rigth {
-  width: 40%;
+  width: 160px;
 }
 
 .div2 {
@@ -162,10 +161,6 @@ test
   flex-direction: column;
   align-items: flex-end;
 }
-.camper {
-  margin-top: 200px;
-}
-
 .logo {
   width: 350px;
 }
@@ -175,7 +170,6 @@ test
 }
 .div3 {
   box-sizing: border-box;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -187,10 +181,10 @@ test
 
 h2 {
   text-align: center;
-  padding: 10px;
   text-transform: uppercase;
   color: #5a3d2b;
 }
+
 input {
   display: block;
   height: 50px;
@@ -198,6 +192,7 @@ input {
   margin: 0 auto;
   border: none;
 }
+
 input::placeholder {
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
@@ -214,6 +209,7 @@ input:active:focus {
   background-color: #e4e3ce;
   height: 70px;
 }
+
 input:focus::placeholder {
   color: #cf4e3e;
   -webkit-transform: translateY(-20px);
@@ -242,9 +238,11 @@ input:focus::placeholder {
   color: #5a3d2b;
   font-weight: 600;
 }
+
 #signUp:hover {
   text-decoration: underline;
 }
+
 button {
   margin-top: 30px;
   align-items: center;
@@ -265,6 +263,7 @@ button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
+
 @media screen and (max-width: 768px) {
   * {
     margin-top: 0;
@@ -274,13 +273,11 @@ button:hover {
     display: none;
   }
   .icon {
-    margin-top: 90px;
+    margin-top: 20px;
     width: 80px;
   }
-  .rigth {
-    display: none;
-  }
   .left {
+    padding: 0;
     margin-left: 20px;
     justify-content: center;
     align-items: center;
@@ -300,6 +297,7 @@ button:hover {
     width: 150px;
     align-items: center;
     margin-top: 0;
+    margin-bottom: 0;
   }
   input {
     width: 70%;
