@@ -98,5 +98,3 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 ### Kill Terminal Command
 
 control + c = kill terminal
-
-prueba para el branch
