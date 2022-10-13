@@ -112,7 +112,7 @@ async function editTask(task) {
   #tasks {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     min-width: none;
   }
   #homeContainer {
