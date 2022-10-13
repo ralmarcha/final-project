@@ -93,7 +93,10 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 - git branch
 - nuevo branch: git checkout -b nuevobranch
 - cambiar de branch : git checkout nombrebranch
+- traernos cambios de otro branch: git pull origin nombrebanch
 
 ### Kill Terminal Command
 
 control + c = kill terminal
+
+prueba para el branch
