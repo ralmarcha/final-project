@@ -15,8 +15,6 @@
 
       <div class="dontDisplayOnMobile" id="navigation">
         <div class="link">
-          <RouterLink class="rout" to="/"> Home</RouterLink>
-          <RouterLink class="rout" to="/list"> List</RouterLink>
           <p>
             Nice to see you <span>{{ name }}</span>
           </p>
@@ -31,8 +29,6 @@
         class="displayOnMobile displayNone"
         id="mobileUserMenu"
       >
-        <RouterLink class="rout-drop" to="/"> Home</RouterLink>
-        <RouterLink class="rout-drop" to="/list"> List</RouterLink>
         <p class="link-drop" @click="logOut">LogOut</p>
       </nav>
     </Transition>

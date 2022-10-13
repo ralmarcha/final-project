@@ -35,14 +35,6 @@ import NewNav from "../components/NewNav.vue";
 import Date from "../components/Date.vue";
 import Footer from "../components/Footer.vue";
 
-//lists
-async function groupList(task) {
-  const taskId = task.id;
-  const group = task.group;
-  await taskStore.groupList(group, taskId);
-  readFromStore();
-}
-
 // nos definimos la tienda del usuario dentro de una constante
 const taskStore = useTaskStore();
 // 3. Tasks are going to be contained in an array here!
@@ -56,7 +48,7 @@ readFromStore();
 
 // 6. add-to-do function will receive 2 params/arguments that will tak a taskTitle and a taskDescription and the body of this async function will call the taskStore that calls the addTask function from the store that pushes the info of the task to the backEnd. This is possible by passing the 2 param/arguments that will be passed by the user from the inputs within the NewTask Component.
 async function addTaskTodo(task) {
-  await taskStore.addTask(task.title, task.description, task.group);
+  await taskStore.addTask(task.title, task.description);
   readFromStore();
 }
 
@@ -102,6 +94,7 @@ async function editTask(task) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin-top: 40px;
 }
 .taskTran-enter-active {
   transition: all 0.8s ease-out;

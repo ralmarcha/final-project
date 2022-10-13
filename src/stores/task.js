@@ -17,14 +17,13 @@ export const useTaskStore = defineStore("tasks", {
     },
 
     //  Add Tasks
-    async addTask(title, description, group) {
+    async addTask(title, description) {
       const { data, error } = await supabase.from("tasks").insert([
         {
           user_id: useUserStore().user.id,
           title: title,
           is_complete: false,
           description: description,
-          group: group,
         },
       ]);
     },
