@@ -273,5 +273,8 @@ label {
     width: 100%;
     margin: 10px;
   }
+  img {
+    width: 40px;
+  }
 }
 </style>

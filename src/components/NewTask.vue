@@ -106,6 +106,7 @@ h1 {
   outline-offset: -10px;
   width: 100%;
   margin-top: 20px;
+  min-width: 500px;
 }
 
 input {

@@ -91,9 +91,9 @@ async function editTask(task) {
   margin: 10px 10px 20px 200px;
 }
 #tasks {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 20px; */
   margin-top: 40px;
 }
 .taskTran-enter-active {
@@ -111,9 +111,14 @@ async function editTask(task) {
   #tasks {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    min-width: none;
   }
   #homeContainer {
     margin: 10px;
+  }
+  #taskItem {
+    width: 90%;
   }
 }
 </style>
