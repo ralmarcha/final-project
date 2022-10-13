@@ -87,4 +87,4 @@ Develop the final project running on Vue 3 with the composition API, Pinia as a 
 
   LIBRARIES: momentjs, sweetAlert, material icons, google fonts
   DEPLOYMENT: https://final-project-three-cyan.vercel.app/auth/login
-  SLIDES:
+  PRESENTATION: https://docs.google.com/presentation/d/1DAPlAgNdvP8y23qfDEsjkci9vVqagKvKH9C_C-ksECc/edit?usp=sharing

@@ -45,7 +45,7 @@ const addNewTask = () => {
     errorNoValue.value = true;
     let timerInterval;
     Swal.fire({
-      title: "Title & List Name are required!",
+      title: "Title required!",
       timer: 1500,
       timerProgressBar: false,
       background: "antiquewhite",
