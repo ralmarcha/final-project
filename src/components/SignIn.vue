@@ -144,7 +144,7 @@ test
   color: #79351f;
   position: absolute;
   z-index: 1;
-  top: 85px;
+  top: 90px;
   right: 40px;
   font-size: 20px;
   opacity: 0.8;

@@ -88,7 +88,8 @@ async function editTask(task) {
 #homeContainer {
   display: flex;
   flex-direction: column;
-  margin: 10px 10px 20px 200px;
+  margin: 10px 10px 20px 230px;
+  align-items: center;
 }
 #tasks {
   /* display: grid;
